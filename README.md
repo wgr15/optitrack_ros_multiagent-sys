@@ -3,4 +3,4 @@ This is a system using Opti-track to get coordinates, ROS as a communication pro
 
 Installation
 ============
-After clone from git, you should add path "~/catkin_ws/src/" to your PYTHONPATH。
+After clone from git, you should add path "/INSTALLSPACE/catkin_ws/src/" (e.g. "~/catkin_ws/src/" ) to your PYTHONPATH。
