@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="car_serial" type="car_serial_talker.py" name="car_serial_talker" output="screen">
+
+  </node>
+
+  <node pkg="car_serial" type="car_serial_listener.py" name="car_serial_listener" output="screen">
+  
+  </node>
+
+</launch>

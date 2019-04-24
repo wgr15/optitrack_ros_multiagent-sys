@@ -1,0 +1,36 @@
+<launch>
+
+  <arg name="server" default="localhost"/>
+
+  <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+    <rosparam subst_value="true">
+      server: $(arg server)
+      port: 3883
+
+      update_frequency: 10.0
+      frame_id: world
+
+      # Use the VRPN server's time, or the client's ROS time.
+      use_server_time: false
+      broadcast_tf: true
+
+      # Must either specify refresh frequency > 0.0, or a list of trackers to create
+      refresh_tracker_frequency: 1.0
+      #trackers:
+      #- FirstTracker
+      #- SecondTracker
+    </rosparam>
+  </node>
+
+  <node pkg="vrpn_client_ros" type="vrpn_listener.py" name="vrpn_listener_01" args=" --node_name vrpn_listener_01 " output="screen">
+
+    <param name="tcp_ip" value="172.16.0.15" />
+
+    <param name="tcp_port" value="8888" />
+    
+    <param name="topic_name" value="/vrpn_client_node/RigidBody02/pose" />
+
+  </node>
+
+
+</launch>

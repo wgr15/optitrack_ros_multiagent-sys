@@ -1,0 +1,23 @@
+<launch>
+
+  <node pkg="vrpn_client_ros" type="vrpn_listener.py" name="vrpn_listener_01" args=" --node_name vrpn_listener_01 " output="screen">\
+
+    <param name="tcp_ip" value="172.16.0.15" />
+
+    <param name="tcp_port" value="8888" />
+    
+    <param name="topic_name" value="/vrpn_client_node/RigidBody01/pose" />
+
+  </node>
+
+  <node pkg="vrpn_client_ros" type="vrpn_listener.py" name="vrpn_listener_02" args=" --node_name vrpn_listener_02 " output="screen">\
+
+    <param name="tcp_ip" value="172.16.0.15" />
+
+    <param name="tcp_port" value="9999" />
+    
+    <param name="topic_name" value="/vrpn_client_node/RigidBody02/pose" />
+
+  </node>
+
+</launch>
