@@ -1,5 +1,7 @@
 <launch>
 
+  <rosparam param="serial_switch">True</rosparam>
+
   <node pkg="car_serial" type="car_serial_talker.py" name="car_serial_talker" output="screen">
 
   </node>

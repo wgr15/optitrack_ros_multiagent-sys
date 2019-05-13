@@ -1,10 +1,11 @@
 <launch>
 
-  <arg name="server" default="localhost"/>
+  #<arg name="server" default="localhost"/>
 
   <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
     <rosparam subst_value="true">
-      server: $(arg server)
+      #server: $(arg server)
+      server: 172.16.0.7
       port: 3883
 
       update_frequency: 10.0
@@ -28,7 +29,7 @@
 
     <param name="tcp_port" value="8888" />
     
-    <param name="topic_name" value="/vrpn_client_node/RigidBody02/pose" />
+    <param name="topic_name" value="/vrpn_client_node/RigidBody01/pose" />
 
   </node>
 

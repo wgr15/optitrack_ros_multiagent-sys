@@ -25,15 +25,17 @@
 
   <node pkg="vrpn_client_ros" type="vrpn_listener_multi.py" name="vrpn_listener_multi" args=" --node_name vrpn_listener_multi " output="screen">
 
-    <param name="agent_num" type="int" value="2" />
+    <param name="agent_num" type="int" value="4" />
 
     <param name="tcp_ip" value="172.16.0.15" />
 
-    <rosparam param="tcp_port">[8888, 9999]</rosparam>
+    <rosparam param="tcp_port">[8888, 9999, 11111, 22222]</rosparam>
 
-    <rosparam param="car_target">[[3.84, 1.17], [1.57, 3.98]]</rosparam>
+    <rosparam param="agent_ip">['172.16.0.66', '172.16.0.176', '172.16.0.184', '172.16.0.98']</rosparam>
 
-    <param name="LASER_RANGE" type="double" value="1.5" />
+    <rosparam param="car_target">[[3.91, 1.05], [1.71, 3.95], [3.87, 3.88], [1.68, 1.03]]</rosparam>
+
+    <param name="LASER_RANGE" type="double" value="1.4" />
 
     <param name="ROBOT_LENGTH" type="double" value="0.25" />
 

@@ -76,9 +76,13 @@ def tcp_send(ip, port, car_num):
             car_state.append(temp_state)
         car_state = utils.generate_laser_from_pos(car_state, LASER_RANGE, ROBOT_LENGTH)    
         action = test_real_car.inference(car_state[car_num])
-        if utils.distance(car_poses[car_num][0], car_poses[car_num][1], car_target[car_num][0], car_target[car_num][1]) < 0.5:
+        if car_num == 3:
+            action[0] = action[0] * 0.8
+        if abs(action[0]) < 1.0/14:
+            action[0] = (1.0/14 + 0.001 if(action[0]>0) else -1.0/14 - 0.001)
+        if utils.distance(car_poses[car_num][0], car_poses[car_num][1], car_target[car_num][0], car_target[car_num][1]) < 0.4:
             action = (0.0, 0.0)
-        rospy.loginfo("RigidBody0%d[RL algorithm]: Action linear = %f, angular = %f.", car_num+1, action[0], action[1])
+        # rospy.loginfo("RigidBody0%d[RL algorithm]: Action linear = %f, angular = %f.", car_num+1, action[0], action[1])
         data = ""
         linear_x = str(action[0])
         linear_y = str(0.0)
