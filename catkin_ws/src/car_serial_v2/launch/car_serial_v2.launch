@@ -1,0 +1,31 @@
+<launch>
+
+  <rosparam param="serial_switch">False</rosparam>
+
+  <rosparam param="control_by_server">True</rosparam>
+
+  <node pkg="car_serial_v2" type="tcp_client.py" name="tcp_client" output="screen">
+  
+    <param name="tcp_ip" value="172.16.0.15" />
+
+    <rosparam param="tcp_port">8888</rosparam>
+  
+  </node>
+
+  <node pkg="car_serial_v2" type="rl_onboard.py" name="rl_onboard" output="screen">
+  
+    <param name="LASER_RANGE" type="double" value="1.4" />
+
+    <param name="ROBOT_LENGTH" type="double" value="0.25" />
+
+  </node>
+
+  <node pkg="car_serial_v2" type="vel_to_control.py" name="vel_to_control" output="screen">
+  
+  </node>
+
+  <node pkg="car_serial_v2" type="control_to_serial.py" name="control_to_serial" output="screen">
+
+  </node>
+
+</launch>
